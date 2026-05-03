@@ -4,50 +4,149 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ロシア語単語帳</title>
+
+<style>
+body {
+  font-family: sans-serif;
+  background: #f0f2f5;
+  text-align: center;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.word {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.meaning {
+  font-size: 20px;
+  color: #555;
+  display: none;
+}
+
+.extra {
+  font-size: 14px;
+  color: #888;
+  margin-top: 10px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
 <h2>ロシア語単語帳</h2>
 
-<div>
-  <h1 id="word"></h1>
-  <p id="meaning" style="display:none;"></p>
+<div class="card">
+  <div id="word" class="word"></div>
+  <div id="meaning" class="meaning"></div>
+  <div id="extra" class="extra"></div>
 </div>
 
 <button onclick="showMeaning()">答え</button>
 <button onclick="nextWord()">次へ</button>
 <button onclick="speak()">🔊</button>
+<br>
+<button onclick="markCorrect()">⭕ 正解</button>
+<button onclick="markWrong()">❌ 間違い</button>
+<button onclick="toggleFavorite()">⭐ お気に入り</button>
+<br>
+<button onclick="mode='all'; nextWord()">通常</button>
+<button onclick="mode='wrong'; nextWord()">復習</button>
+<button onclick="mode='fav'; nextWord()">お気に入り</button>
 
 <script>
-let data = [];
+// ===== JSONデータ（ここにExcel変換したもの全部入れる） =====
+const data = [
+  { word: "дом", meaning: "家", singular: "дом", plural: "дома", prepositional: "в доме" },
+  { word: "улица", meaning: "通り", singular: "улица", plural: "улицы", prepositional: "на улице" }
+];
+
+// ===== 状態 =====
 let current = null;
+let mode = "all";
+let wrong = JSON.parse(localStorage.getItem("wrong")) || [];
+let fav = JSON.parse(localStorage.getItem("fav")) || [];
 
-// 👇 ここでJSON読み込み
-fetch("russian_words.json")
-  .then(res => res.json())
-  .then(json => {
-    data = json;
-    nextWord();
-  });
-
+// ===== 出題 =====
 function nextWord() {
-  current = data[Math.floor(Math.random() * data.length)];
+  let pool = data;
+
+  if (mode === "wrong") {
+    pool = data.filter(d => wrong.includes(d.word));
+  }
+  if (mode === "fav") {
+    pool = data.filter(d => fav.includes(d.word));
+  }
+
+  if (pool.length === 0) pool = data;
+
+  current = pool[Math.floor(Math.random() * pool.length)];
+
   document.getElementById("word").innerText = current.word;
   document.getElementById("meaning").style.display = "none";
+  document.getElementById("extra").innerText = "";
 }
 
+// ===== 表示 =====
 function showMeaning() {
-  const el = document.getElementById("meaning");
-  el.innerText = current.meaning;
-  el.style.display = "block";
+  document.getElementById("meaning").innerText = current.meaning;
+  document.getElementById("meaning").style.display = "block";
+
+  document.getElementById("extra").innerText =
+    `単数: ${current.singular} / 複数: ${current.plural} / 前置格: ${current.prepositional}`;
 }
 
+// ===== 音声 =====
 function speak() {
   const u = new SpeechSynthesisUtterance(current.word);
   u.lang = "ru-RU";
   speechSynthesis.speak(u);
 }
+
+// ===== 記録 =====
+function markCorrect() {
+  wrong = wrong.filter(w => w !== current.word);
+  save();
+}
+
+function markWrong() {
+  if (!wrong.includes(current.word)) wrong.push(current.word);
+  save();
+}
+
+function toggleFavorite() {
+  if (fav.includes(current.word)) {
+    fav = fav.filter(f => f !== current.word);
+  } else {
+    fav.push(current.word);
+  }
+  save();
+}
+
+function save() {
+  localStorage.setItem("wrong", JSON.stringify(wrong));
+  localStorage.setItem("fav", JSON.stringify(fav));
+}
+
+// 初期
+nextWord();
 </script>
 
 </body>
