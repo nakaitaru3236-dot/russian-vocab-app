@@ -4,188 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ロシア語単語帳</title>
-
-<style>
-body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f2f4f8;
-  margin: 0;
-  padding: 20px;
-  text-align: center;
-}
-
-h2 {
-  margin-bottom: 20px;
-}
-
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 40px 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-  transition: transform 0.2s;
-}
-
-.card:active {
-  transform: scale(0.97);
-}
-
-.word {
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.meaning {
-  font-size: 20px;
-  color: #666;
-  margin-top: 15px;
-  display: none;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-}
-
-button {
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  color: white;
-}
-
-.btn-main { background: #4CAF50; }
-.btn-next { background: #2196F3; }
-.btn-audio { background: #9C27B0; }
-.btn-ok { background: #4CAF50; }
-.btn-ng { background: #f44336; }
-.btn-fav { background: #FF9800; }
-
-.mode-buttons {
-  margin-top: 15px;
-}
-
-.mode-buttons button {
-  background: #777;
-}
-</style>
 </head>
 
 <body>
 
 <h2>ロシア語単語帳</h2>
 
-<div class="card" onclick="showMeaning()">
-  <div id="word" class="word"></div>
-  <div id="meaning" class="meaning"></div>
+<div>
+  <h1 id="word"></h1>
+  <p id="meaning" style="display:none;"></p>
 </div>
 
-<div class="buttons">
-  <button class="btn-main" onclick="showMeaning()">答え</button>
-  <button class="btn-next" onclick="nextWord()">次へ</button>
-  <button class="btn-audio" onclick="speak()">🔊</button>
-
-  <button class="btn-ok" onclick="markCorrect()">⭕</button>
-  <button class="btn-ng" onclick="markWrong()">❌</button>
-  <button class="btn-fav" onclick="toggleFavorite()">⭐</button>
-</div>
-
-<div class="mode-buttons">
-  <button onclick="mode='all'; nextWord()">通常</button>
-  <button onclick="mode='wrong'; nextWord()">復習</button>
-  <button onclick="mode='fav'; nextWord()">お気に入り</button>
-</div>
+<button onclick="showMeaning()">答え</button>
+<button onclick="nextWord()">次へ</button>
+<button onclick="speak()">🔊</button>
 
 <script>
 let data = [];
 let current = null;
-let mode = "all";
 
-let wrong = JSON.parse(localStorage.getItem("wrong")) || [];
-let fav = JSON.parse(localStorage.getItem("fav")) || [];
-
-// JSON読み込み
+// 👇 ここでJSON読み込み
 fetch("russian_words.json")
-  .then(res => {
-    console.log("status:", res.status);
-    return res.json();
-  })
+  .then(res => res.json())
   .then(json => {
-    console.log("data:", json);
     data = json;
     nextWord();
-  })
-  .catch(err => {
-    console.error("エラー:", err);
   });
 
-// 出題
 function nextWord() {
-  let pool = data;
-
-  if (mode === "wrong") {
-    pool = data.filter(d => wrong.includes(d.word));
-  }
-  if (mode === "fav") {
-    pool = data.filter(d => fav.includes(d.word));
-  }
-
-  if (pool.length === 0) pool = data;
-
-  current = pool[Math.floor(Math.random() * pool.length)];
-
+  current = data[Math.floor(Math.random() * data.length)];
   document.getElementById("word").innerText = current.word;
   document.getElementById("meaning").style.display = "none";
 }
 
-// 答え
 function showMeaning() {
   const el = document.getElementById("meaning");
   el.innerText = current.meaning;
   el.style.display = "block";
 }
 
-// 音声
 function speak() {
   const u = new SpeechSynthesisUtterance(current.word);
   u.lang = "ru-RU";
   speechSynthesis.speak(u);
-}
-
-// 正解
-function markCorrect() {
-  wrong = wrong.filter(w => w !== current.word);
-  save();
-  nextWord();
-}
-
-// 間違い
-function markWrong() {
-  if (!wrong.includes(current.word)) {
-    wrong.push(current.word);
-  }
-  save();
-  nextWord();
-}
-
-// お気に入り
-function toggleFavorite() {
-  if (fav.includes(current.word)) {
-    fav = fav.filter(f => f !== current.word);
-  } else {
-    fav.push(current.word);
-  }
-  save();
-}
-
-// 保存
-function save() {
-  localStorage.setItem("wrong", JSON.stringify(wrong));
-  localStorage.setItem("fav", JSON.stringify(fav));
 }
 </script>
 
