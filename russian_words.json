@@ -1,0 +1,401 @@
+[
+  {
+    "word": "дом",
+    "meaning": "家",
+    "singular": "дом",
+    "plural": "дома",
+    "prepositional": "в доме"
+  },
+  {
+    "word": "квартира",
+    "meaning": "アパート",
+    "singular": "квартира",
+    "plural": "квартиры",
+    "prepositional": "в квартире"
+  },
+  {
+    "word": "комната",
+    "meaning": "部屋",
+    "singular": "комната",
+    "plural": "комнаты",
+    "prepositional": "в комнате"
+  },
+  {
+    "word": "улица",
+    "meaning": "通り",
+    "singular": "улица",
+    "plural": "улицы",
+    "prepositional": "в улице"
+  },
+  {
+    "word": "магазин",
+    "meaning": "店",
+    "singular": "магазин",
+    "plural": "магазины",
+    "prepositional": "в магазине"
+  },
+  {
+    "word": "работа",
+    "meaning": "仕事",
+    "singular": "работа",
+    "plural": "работы",
+    "prepositional": "в работе"
+  },
+  {
+    "word": "компания",
+    "meaning": "会社",
+    "singular": "компания",
+    "plural": "компании",
+    "prepositional": "в компании"
+  },
+  {
+    "word": "школа",
+    "meaning": "学校",
+    "singular": "школа",
+    "plural": "школы",
+    "prepositional": "в школе"
+  },
+  {
+    "word": "язык",
+    "meaning": "言語",
+    "singular": "язык",
+    "plural": "языки",
+    "prepositional": "в языке"
+  },
+  {
+    "word": "время",
+    "meaning": "時間",
+    "singular": "время",
+    "plural": "времена",
+    "prepositional": "во времени"
+  },
+  {
+    "word": NaN,
+    "meaning": NaN,
+    "singular": NaN,
+    "plural": NaN,
+    "prepositional": NaN
+  },
+  {
+    "word": "вода",
+    "meaning": "水",
+    "singular": "вода",
+    "plural": "воды",
+    "prepositional": "в воде"
+  },
+  {
+    "word": "еда",
+    "meaning": "食べ物",
+    "singular": "еда",
+    "plural": "еды",
+    "prepositional": "в еде"
+  },
+  {
+    "word": "кофе",
+    "meaning": "コーヒー",
+    "singular": "кофе",
+    "plural": "кофе",
+    "prepositional": "в кофе"
+  },
+  {
+    "word": "чай",
+    "meaning": "お茶",
+    "singular": "чай",
+    "plural": "чаи",
+    "prepositional": "в чае"
+  },
+  {
+    "word": "хлеб",
+    "meaning": "パン",
+    "singular": "хлеб",
+    "plural": "хлебы",
+    "prepositional": "в хлебе"
+  },
+  {
+    "word": "яблоко",
+    "meaning": "りんご",
+    "singular": "яблоко",
+    "plural": "яблоки",
+    "prepositional": "в яблоке"
+  },
+  {
+    "word": NaN,
+    "meaning": NaN,
+    "singular": NaN,
+    "plural": NaN,
+    "prepositional": NaN
+  },
+  {
+    "word": "человек",
+    "meaning": "人",
+    "singular": "человек",
+    "plural": "люди",
+    "prepositional": "в человеке"
+  },
+  {
+    "word": "друг",
+    "meaning": "友達",
+    "singular": "друг",
+    "plural": "друзья",
+    "prepositional": "в друге"
+  },
+  {
+    "word": "семья",
+    "meaning": "家族",
+    "singular": "семья",
+    "plural": "семьи",
+    "prepositional": "в семье"
+  },
+  {
+    "word": "мама",
+    "meaning": "母",
+    "singular": "мама",
+    "plural": "мамы",
+    "prepositional": "в маме"
+  },
+  {
+    "word": "папа",
+    "meaning": "父",
+    "singular": "папа",
+    "plural": "папы",
+    "prepositional": "в папе"
+  },
+  {
+    "word": "ребёнок",
+    "meaning": "子ども",
+    "singular": "ребёнок",
+    "plural": "дети",
+    "prepositional": "в ребёнке"
+  },
+  {
+    "word": NaN,
+    "meaning": NaN,
+    "singular": NaN,
+    "plural": NaN,
+    "prepositional": NaN
+  },
+  {
+    "word": "стол",
+    "meaning": "机",
+    "singular": "стол",
+    "plural": "столы",
+    "prepositional": "в столе"
+  },
+  {
+    "word": "стул",
+    "meaning": "椅子",
+    "singular": "стул",
+    "plural": "стулья",
+    "prepositional": "в стуле"
+  },
+  {
+    "word": "кровать",
+    "meaning": "ベッド",
+    "singular": "кровать",
+    "plural": "кровати",
+    "prepositional": "в кровати"
+  },
+  {
+    "word": "окно",
+    "meaning": "窓",
+    "singular": "окно",
+    "plural": "окна",
+    "prepositional": "в окне"
+  },
+  {
+    "word": "дверь",
+    "meaning": "ドア",
+    "singular": "дверь",
+    "plural": "двери",
+    "prepositional": "в двери"
+  },
+  {
+    "word": NaN,
+    "meaning": NaN,
+    "singular": NaN,
+    "plural": NaN,
+    "prepositional": NaN
+  },
+  {
+    "word": "телефон",
+    "meaning": "電話",
+    "singular": "телефон",
+    "plural": "телефоны",
+    "prepositional": "в телефоне"
+  },
+  {
+    "word": "компьютер",
+    "meaning": "パソコン",
+    "singular": "компьютер",
+    "plural": "компьютеры",
+    "prepositional": "в компьютере"
+  },
+  {
+    "word": "интернет",
+    "meaning": "インターネット",
+    "singular": "интернет",
+    "plural": "интернеты",
+    "prepositional": "в интернете"
+  },
+  {
+    "word": "телевизор",
+    "meaning": "テレビ",
+    "singular": "телевизор",
+    "plural": "телевизоры",
+    "prepositional": "в телевизоре"
+  },
+  {
+    "word": NaN,
+    "meaning": NaN,
+    "singular": NaN,
+    "plural": NaN,
+    "prepositional": NaN
+  },
+  {
+    "word": "автобус",
+    "meaning": "バス",
+    "singular": "автобус",
+    "plural": "автобусы",
+    "prepositional": "в автобусе"
+  },
+  {
+    "word": "поезд",
+    "meaning": "電車",
+    "singular": "поезд",
+    "plural": "поезда",
+    "prepositional": "в поезде"
+  },
+  {
+    "word": "метро",
+    "meaning": "地下鉄",
+    "singular": "метро",
+    "plural": "метро",
+    "prepositional": "в метро"
+  },
+  {
+    "word": "машина",
+    "meaning": "車",
+    "singular": "машина",
+    "plural": "машины",
+    "prepositional": "в машине"
+  },
+  {
+    "word": "дорога",
+    "meaning": "道",
+    "singular": "дорога",
+    "plural": "дороги",
+    "prepositional": "в дороге"
+  },
+  {
+    "word": NaN,
+    "meaning": NaN,
+    "singular": NaN,
+    "plural": NaN,
+    "prepositional": NaN
+  },
+  {
+    "word": "страна",
+    "meaning": "国",
+    "singular": "страна",
+    "plural": "страны",
+    "prepositional": "в стране"
+  },
+  {
+    "word": "город",
+    "meaning": "都市",
+    "singular": "город",
+    "plural": "города",
+    "prepositional": "в городе"
+  },
+  {
+    "word": "япония",
+    "meaning": "日本",
+    "singular": "япония",
+    "plural": "японии",
+    "prepositional": "в японии"
+  },
+  {
+    "word": "россия",
+    "meaning": "ロシア",
+    "singular": "россия",
+    "plural": "россии",
+    "prepositional": "в россии"
+  },
+  {
+    "word": NaN,
+    "meaning": NaN,
+    "singular": NaN,
+    "plural": NaN,
+    "prepositional": NaN
+  },
+  {
+    "word": "рука",
+    "meaning": "手",
+    "singular": "рука",
+    "plural": "руки",
+    "prepositional": "в руке"
+  },
+  {
+    "word": "нога",
+    "meaning": "足",
+    "singular": "нога",
+    "plural": "ноги",
+    "prepositional": "в ноге"
+  },
+  {
+    "word": "голова",
+    "meaning": "頭",
+    "singular": "голова",
+    "plural": "головы",
+    "prepositional": "в голове"
+  },
+  {
+    "word": "глаз",
+    "meaning": "目",
+    "singular": "глаз",
+    "plural": "глаза",
+    "prepositional": "в глазе"
+  },
+  {
+    "word": "лицо",
+    "meaning": "顔",
+    "singular": "лицо",
+    "plural": "лица",
+    "prepositional": "в лице"
+  },
+  {
+    "word": NaN,
+    "meaning": NaN,
+    "singular": NaN,
+    "plural": NaN,
+    "prepositional": NaN
+  },
+  {
+    "word": "вещь",
+    "meaning": "物",
+    "singular": "вещь",
+    "plural": "вещи",
+    "prepositional": "в вещи"
+  },
+  {
+    "word": "одежда",
+    "meaning": "服",
+    "singular": "одежда",
+    "plural": "одежды",
+    "prepositional": "в одежде"
+  },
+  {
+    "word": "ботинки",
+    "meaning": "靴",
+    "singular": "ботинок",
+    "plural": "ботинки",
+    "prepositional": "в ботинках"
+  },
+  {
+    "word": "сумка",
+    "meaning": "バッグ",
+    "singular": "сумка",
+    "plural": "сумки",
+    "prepositional": "в сумке"
+  }
+]
