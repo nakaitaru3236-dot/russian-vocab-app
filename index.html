@@ -47,29 +47,95 @@ button {
   font-size: 14px;
 }
 </style>
-</head>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f2f4f8;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
 
-<body>
+h2 {
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.word {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.meaning {
+  font-size: 20px;
+  color: #666;
+  margin-top: 15px;
+  display: none;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: white;
+}
+
+.btn-main { background: #4CAF50; }
+.btn-next { background: #2196F3; }
+.btn-audio { background: #9C27B0; }
+.btn-ok { background: #4CAF50; }
+.btn-ng { background: #f44336; }
+.btn-fav { background: #FF9800; }
+
+.mode-buttons {
+  margin-top: 15px;
+}
+
+.mode-buttons button {
+  background: #777;
+}
+</style>
+
 
 <h2>ロシア語単語帳</h2>
 
 <div class="card">
   <div id="word" class="word"></div>
   <div id="meaning" class="meaning"></div>
-  <div id="extra" class="extra"></div>
 </div>
 
-<button onclick="showMeaning()">答え</button>
-<button onclick="nextWord()">次へ</button>
-<button onclick="speak()">🔊</button>
-<br>
-<button onclick="markCorrect()">⭕ 正解</button>
-<button onclick="markWrong()">❌ 間違い</button>
-<button onclick="toggleFavorite()">⭐ お気に入り</button>
-<br>
-<button onclick="mode='all'; nextWord()">通常</button>
-<button onclick="mode='wrong'; nextWord()">復習</button>
-<button onclick="mode='fav'; nextWord()">お気に入り</button>
+<div class="buttons">
+  <button class="btn-main" onclick="showMeaning()">答え</button>
+  <button class="btn-next" onclick="nextWord()">次へ</button>
+  <button class="btn-audio" onclick="speak()">🔊</button>
+
+  <button class="btn-ok" onclick="markCorrect()">⭕ 正解</button>
+  <button class="btn-ng" onclick="markWrong()">❌ 間違い</button>
+  <button class="btn-fav" onclick="toggleFavorite()">⭐</button>
+</div>
+
+<div class="mode-buttons">
+  <button onclick="mode='all'; nextWord()">通常</button>
+  <button onclick="mode='wrong'; nextWord()">復習</button>
+  <button onclick="mode='fav'; nextWord()">お気に入り</button>
+</div>
+
+</body>
 
 <script>
 // ===== JSONデータ（ここにExcel変換したもの全部入れる） =====
