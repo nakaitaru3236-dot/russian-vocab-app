@@ -110,10 +110,17 @@ let fav = JSON.parse(localStorage.getItem("fav")) || [];
 
 // JSON読み込み
 fetch("russian_words.json")
-  .then(res => res.json())
+  .then(res => {
+    console.log("status:", res.status);
+    return res.json();
+  })
   .then(json => {
+    console.log("data:", json);
     data = json;
     nextWord();
+  })
+  .catch(err => {
+    console.error("エラー:", err);
   });
 
 // 出題
