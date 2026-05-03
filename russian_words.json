@@ -1,401 +1,174 @@
-[
-  {
-    "word": "дом",
-    "meaning": "家",
-    "singular": "дом",
-    "plural": "дома",
-    "prepositional": "в доме"
-  },
-  {
-    "word": "квартира",
-    "meaning": "アパート",
-    "singular": "квартира",
-    "plural": "квартиры",
-    "prepositional": "в квартире"
-  },
-  {
-    "word": "комната",
-    "meaning": "部屋",
-    "singular": "комната",
-    "plural": "комнаты",
-    "prepositional": "в комнате"
-  },
-  {
-    "word": "улица",
-    "meaning": "通り",
-    "singular": "улица",
-    "plural": "улицы",
-    "prepositional": "в улице"
-  },
-  {
-    "word": "магазин",
-    "meaning": "店",
-    "singular": "магазин",
-    "plural": "магазины",
-    "prepositional": "в магазине"
-  },
-  {
-    "word": "работа",
-    "meaning": "仕事",
-    "singular": "работа",
-    "plural": "работы",
-    "prepositional": "в работе"
-  },
-  {
-    "word": "компания",
-    "meaning": "会社",
-    "singular": "компания",
-    "plural": "компании",
-    "prepositional": "в компании"
-  },
-  {
-    "word": "школа",
-    "meaning": "学校",
-    "singular": "школа",
-    "plural": "школы",
-    "prepositional": "в школе"
-  },
-  {
-    "word": "язык",
-    "meaning": "言語",
-    "singular": "язык",
-    "plural": "языки",
-    "prepositional": "в языке"
-  },
-  {
-    "word": "время",
-    "meaning": "時間",
-    "singular": "время",
-    "plural": "времена",
-    "prepositional": "во времени"
-  },
-  {
-    "word": NaN,
-    "meaning": NaN,
-    "singular": NaN,
-    "plural": NaN,
-    "prepositional": NaN
-  },
-  {
-    "word": "вода",
-    "meaning": "水",
-    "singular": "вода",
-    "plural": "воды",
-    "prepositional": "в воде"
-  },
-  {
-    "word": "еда",
-    "meaning": "食べ物",
-    "singular": "еда",
-    "plural": "еды",
-    "prepositional": "в еде"
-  },
-  {
-    "word": "кофе",
-    "meaning": "コーヒー",
-    "singular": "кофе",
-    "plural": "кофе",
-    "prepositional": "в кофе"
-  },
-  {
-    "word": "чай",
-    "meaning": "お茶",
-    "singular": "чай",
-    "plural": "чаи",
-    "prepositional": "в чае"
-  },
-  {
-    "word": "хлеб",
-    "meaning": "パン",
-    "singular": "хлеб",
-    "plural": "хлебы",
-    "prepositional": "в хлебе"
-  },
-  {
-    "word": "яблоко",
-    "meaning": "りんご",
-    "singular": "яблоко",
-    "plural": "яблоки",
-    "prepositional": "в яблоке"
-  },
-  {
-    "word": NaN,
-    "meaning": NaN,
-    "singular": NaN,
-    "plural": NaN,
-    "prepositional": NaN
-  },
-  {
-    "word": "человек",
-    "meaning": "人",
-    "singular": "человек",
-    "plural": "люди",
-    "prepositional": "в человеке"
-  },
-  {
-    "word": "друг",
-    "meaning": "友達",
-    "singular": "друг",
-    "plural": "друзья",
-    "prepositional": "в друге"
-  },
-  {
-    "word": "семья",
-    "meaning": "家族",
-    "singular": "семья",
-    "plural": "семьи",
-    "prepositional": "в семье"
-  },
-  {
-    "word": "мама",
-    "meaning": "母",
-    "singular": "мама",
-    "plural": "мамы",
-    "prepositional": "в маме"
-  },
-  {
-    "word": "папа",
-    "meaning": "父",
-    "singular": "папа",
-    "plural": "папы",
-    "prepositional": "в папе"
-  },
-  {
-    "word": "ребёнок",
-    "meaning": "子ども",
-    "singular": "ребёнок",
-    "plural": "дети",
-    "prepositional": "в ребёнке"
-  },
-  {
-    "word": NaN,
-    "meaning": NaN,
-    "singular": NaN,
-    "plural": NaN,
-    "prepositional": NaN
-  },
-  {
-    "word": "стол",
-    "meaning": "机",
-    "singular": "стол",
-    "plural": "столы",
-    "prepositional": "в столе"
-  },
-  {
-    "word": "стул",
-    "meaning": "椅子",
-    "singular": "стул",
-    "plural": "стулья",
-    "prepositional": "в стуле"
-  },
-  {
-    "word": "кровать",
-    "meaning": "ベッド",
-    "singular": "кровать",
-    "plural": "кровати",
-    "prepositional": "в кровати"
-  },
-  {
-    "word": "окно",
-    "meaning": "窓",
-    "singular": "окно",
-    "plural": "окна",
-    "prepositional": "в окне"
-  },
-  {
-    "word": "дверь",
-    "meaning": "ドア",
-    "singular": "дверь",
-    "plural": "двери",
-    "prepositional": "в двери"
-  },
-  {
-    "word": NaN,
-    "meaning": NaN,
-    "singular": NaN,
-    "plural": NaN,
-    "prepositional": NaN
-  },
-  {
-    "word": "телефон",
-    "meaning": "電話",
-    "singular": "телефон",
-    "plural": "телефоны",
-    "prepositional": "в телефоне"
-  },
-  {
-    "word": "компьютер",
-    "meaning": "パソコン",
-    "singular": "компьютер",
-    "plural": "компьютеры",
-    "prepositional": "в компьютере"
-  },
-  {
-    "word": "интернет",
-    "meaning": "インターネット",
-    "singular": "интернет",
-    "plural": "интернеты",
-    "prepositional": "в интернете"
-  },
-  {
-    "word": "телевизор",
-    "meaning": "テレビ",
-    "singular": "телевизор",
-    "plural": "телевизоры",
-    "prepositional": "в телевизоре"
-  },
-  {
-    "word": NaN,
-    "meaning": NaN,
-    "singular": NaN,
-    "plural": NaN,
-    "prepositional": NaN
-  },
-  {
-    "word": "автобус",
-    "meaning": "バス",
-    "singular": "автобус",
-    "plural": "автобусы",
-    "prepositional": "в автобусе"
-  },
-  {
-    "word": "поезд",
-    "meaning": "電車",
-    "singular": "поезд",
-    "plural": "поезда",
-    "prepositional": "в поезде"
-  },
-  {
-    "word": "метро",
-    "meaning": "地下鉄",
-    "singular": "метро",
-    "plural": "метро",
-    "prepositional": "в метро"
-  },
-  {
-    "word": "машина",
-    "meaning": "車",
-    "singular": "машина",
-    "plural": "машины",
-    "prepositional": "в машине"
-  },
-  {
-    "word": "дорога",
-    "meaning": "道",
-    "singular": "дорога",
-    "plural": "дороги",
-    "prepositional": "в дороге"
-  },
-  {
-    "word": NaN,
-    "meaning": NaN,
-    "singular": NaN,
-    "plural": NaN,
-    "prepositional": NaN
-  },
-  {
-    "word": "страна",
-    "meaning": "国",
-    "singular": "страна",
-    "plural": "страны",
-    "prepositional": "в стране"
-  },
-  {
-    "word": "город",
-    "meaning": "都市",
-    "singular": "город",
-    "plural": "города",
-    "prepositional": "в городе"
-  },
-  {
-    "word": "япония",
-    "meaning": "日本",
-    "singular": "япония",
-    "plural": "японии",
-    "prepositional": "в японии"
-  },
-  {
-    "word": "россия",
-    "meaning": "ロシア",
-    "singular": "россия",
-    "plural": "россии",
-    "prepositional": "в россии"
-  },
-  {
-    "word": NaN,
-    "meaning": NaN,
-    "singular": NaN,
-    "plural": NaN,
-    "prepositional": NaN
-  },
-  {
-    "word": "рука",
-    "meaning": "手",
-    "singular": "рука",
-    "plural": "руки",
-    "prepositional": "в руке"
-  },
-  {
-    "word": "нога",
-    "meaning": "足",
-    "singular": "нога",
-    "plural": "ноги",
-    "prepositional": "в ноге"
-  },
-  {
-    "word": "голова",
-    "meaning": "頭",
-    "singular": "голова",
-    "plural": "головы",
-    "prepositional": "в голове"
-  },
-  {
-    "word": "глаз",
-    "meaning": "目",
-    "singular": "глаз",
-    "plural": "глаза",
-    "prepositional": "в глазе"
-  },
-  {
-    "word": "лицо",
-    "meaning": "顔",
-    "singular": "лицо",
-    "plural": "лица",
-    "prepositional": "в лице"
-  },
-  {
-    "word": NaN,
-    "meaning": NaN,
-    "singular": NaN,
-    "plural": NaN,
-    "prepositional": NaN
-  },
-  {
-    "word": "вещь",
-    "meaning": "物",
-    "singular": "вещь",
-    "plural": "вещи",
-    "prepositional": "в вещи"
-  },
-  {
-    "word": "одежда",
-    "meaning": "服",
-    "singular": "одежда",
-    "plural": "одежды",
-    "prepositional": "в одежде"
-  },
-  {
-    "word": "ботинки",
-    "meaning": "靴",
-    "singular": "ботинок",
-    "plural": "ботинки",
-    "prepositional": "в ботинках"
-  },
-  {
-    "word": "сумка",
-    "meaning": "バッグ",
-    "singular": "сумка",
-    "plural": "сумки",
-    "prepositional": "в сумке"
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ロシア語単語帳</title>
+
+<style>
+body {
+  font-family: sans-serif;
+  background: #f2f4f8;
+  text-align: center;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+.word {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.meaning {
+  display: none;
+  margin-top: 10px;
+  color: #666;
+}
+
+.forms {
+  margin-top: 15px;
+  text-align: left;
+  display: none;
+}
+
+.forms div {
+  padding: 5px 0;
+}
+
+button {
+  margin: 5px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.btn-main { background: green; }
+.btn-next { background: blue; }
+.btn-audio { background: purple; }
+.btn-fav { background: orange; }
+.btn-forms { background: #555; }
+
+.mode-screen button {
+  display: block;
+  width: 100%;
+  background: #444;
+}
+</style>
+</head>
+
+<body>
+
+<h2>ロシア語単語帳</h2>
+
+<div id="modeScreen">
+  <button onclick="start('random')">ランダム</button>
+  <button onclick="start('noun')">名詞</button>
+  <button onclick="start('verb')">動詞</button>
+  <button onclick="start('adj')">形容詞</button>
+  <button onclick="start('other')">その他</button>
+  <button onclick="start('fav')">お気に入り</button>
+</div>
+
+<div id="app" style="display:none;">
+  <div class="card" onclick="showMeaning()">
+    <div id="word" class="word"></div>
+    <div id="meaning" class="meaning"></div>
+    <div id="forms" class="forms"></div>
+  </div>
+
+  <div>
+    <button class="btn-main" onclick="showMeaning()">答え</button>
+    <button class="btn-next" onclick="nextWord()">次へ</button>
+    <button class="btn-audio" onclick="speak()">🔊</button>
+    <button class="btn-fav" onclick="toggleFavorite()">⭐</button>
+    <button class="btn-forms" onclick="toggleForms()">変化</button>
+  </div>
+</div>
+
+<script>
+let data = [];
+let current = null;
+let mode = "random";
+let fav = JSON.parse(localStorage.getItem("fav")) || [];
+
+fetch("./russian_words.json")
+  .then(res => res.json())
+  .then(json => data = json);
+
+function start(m) {
+  mode = m;
+  document.getElementById("modeScreen").style.display = "none";
+  document.getElementById("app").style.display = "block";
+  nextWord();
+}
+
+function nextWord() {
+  let pool = data;
+
+  if (mode === "noun") pool = data.filter(d => d.type === "noun");
+  if (mode === "verb") pool = data.filter(d => d.type === "verb");
+  if (mode === "adj") pool = data.filter(d => d.type === "adj");
+  if (mode === "fav") pool = data.filter(d => fav.includes(d.word));
+
+  if (pool.length === 0) pool = data;
+
+  current = pool[Math.floor(Math.random() * pool.length)];
+
+  document.getElementById("word").innerText = current.word;
+  document.getElementById("meaning").style.display = "none";
+  document.getElementById("forms").style.display = "none";
+
+  renderForms();
+  speak();
+}
+
+function showMeaning() {
+  const el = document.getElementById("meaning");
+  el.innerText = current.meaning;
+  el.style.display = "block";
+}
+
+function renderForms() {
+  const box = document.getElementById("forms");
+  box.innerHTML = "";
+
+  if (!current.forms) return;
+
+  for (let key in current.forms) {
+    const div = document.createElement("div");
+    div.innerText = key + "： " + current.forms[key];
+    box.appendChild(div);
   }
-]
+}
+
+function toggleForms() {
+  const el = document.getElementById("forms");
+  el.style.display = el.style.display === "none" ? "block" : "none";
+}
+
+function speak() {
+  const u = new SpeechSynthesisUtterance(current.word);
+  u.lang = "ru-RU";
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function toggleFavorite() {
+  if (fav.includes(current.word)) {
+    fav = fav.filter(f => f !== current.word);
+  } else {
+    fav.push(current.word);
+  }
+  localStorage.setItem("fav", JSON.stringify(fav));
+}
+</script>
+
+</body>
+</html>
