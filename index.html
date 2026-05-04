@@ -7,58 +7,58 @@
 
 <style>
 body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: sans-serif;
   background: #f2f4f8;
-  margin: 0;
-  padding: 20px;
   text-align: center;
+  padding: 20px;
 }
 
 .card {
   background: white;
   border-radius: 20px;
-  padding: 40px 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 30px;
   margin-top: 20px;
 }
 
 .word {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
 }
 
 .meaning {
-  font-size: 20px;
+  display: none;
+  margin-top: 10px;
   color: #666;
+}
+
+.forms {
   margin-top: 15px;
+  text-align: left;
   display: none;
 }
 
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 20px;
+.forms div {
+  padding: 5px 0;
 }
 
 button {
-  padding: 14px;
+  margin: 5px;
+  padding: 12px;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 10px;
   color: white;
 }
 
-.btn-main { background: #4CAF50; }
-.btn-next { background: #2196F3; }
-.btn-audio { background: #9C27B0; }
-.btn-fav { background: #FF9800; }
+.btn-main { background: green; }
+.btn-next { background: blue; }
+.btn-audio { background: purple; }
+.btn-fav { background: orange; }
+.btn-forms { background: #555; }
 
 .mode-screen button {
   display: block;
   width: 100%;
-  margin: 10px 0;
-  background: #555;
+  background: #444;
 }
 </style>
 </head>
@@ -67,8 +67,7 @@ button {
 
 <h2>ロシア語単語帳</h2>
 
-<!-- モード選択 -->
-<div id="modeScreen" class="mode-screen">
+<div id="modeScreen">
   <button onclick="start('random')">ランダム</button>
   <button onclick="start('noun')">名詞</button>
   <button onclick="start('verb')">動詞</button>
@@ -77,18 +76,19 @@ button {
   <button onclick="start('fav')">お気に入り</button>
 </div>
 
-<!-- 学習画面 -->
 <div id="app" style="display:none;">
   <div class="card" onclick="showMeaning()">
     <div id="word" class="word"></div>
     <div id="meaning" class="meaning"></div>
+    <div id="forms" class="forms"></div>
   </div>
 
-  <div class="buttons">
+  <div>
     <button class="btn-main" onclick="showMeaning()">答え</button>
     <button class="btn-next" onclick="nextWord()">次へ</button>
     <button class="btn-audio" onclick="speak()">🔊</button>
     <button class="btn-fav" onclick="toggleFavorite()">⭐</button>
+    <button class="btn-forms" onclick="toggleForms()">変化</button>
   </div>
 </div>
 
@@ -98,29 +98,23 @@ let current = null;
 let mode = "random";
 let fav = JSON.parse(localStorage.getItem("fav")) || [];
 
-// JSON読み込み
 fetch("./russian_words.json")
   .then(res => res.json())
-  .then(json => {
-    data = json;
-  });
+  .then(json => data = json);
 
-// モード開始
-function start(selectedMode) {
-  mode = selectedMode;
+function start(m) {
+  mode = m;
   document.getElementById("modeScreen").style.display = "none";
   document.getElementById("app").style.display = "block";
   nextWord();
 }
 
-// 出題
 function nextWord() {
   let pool = data;
 
   if (mode === "noun") pool = data.filter(d => d.type === "noun");
   if (mode === "verb") pool = data.filter(d => d.type === "verb");
   if (mode === "adj") pool = data.filter(d => d.type === "adj");
-  if (mode === "other") pool = data.filter(d => !["noun","verb","adj"].includes(d.type));
   if (mode === "fav") pool = data.filter(d => fav.includes(d.word));
 
   if (pool.length === 0) pool = data;
@@ -129,18 +123,36 @@ function nextWord() {
 
   document.getElementById("word").innerText = current.word;
   document.getElementById("meaning").style.display = "none";
+  document.getElementById("forms").style.display = "none";
 
-  speak(); // ← 自動音声
+  renderForms();
+  speak();
 }
 
-// 答え
 function showMeaning() {
   const el = document.getElementById("meaning");
   el.innerText = current.meaning;
   el.style.display = "block";
 }
 
-// 音声
+function renderForms() {
+  const box = document.getElementById("forms");
+  box.innerHTML = "";
+
+  if (!current.forms) return;
+
+  for (let key in current.forms) {
+    const div = document.createElement("div");
+    div.innerText = key + "： " + current.forms[key];
+    box.appendChild(div);
+  }
+}
+
+function toggleForms() {
+  const el = document.getElementById("forms");
+  el.style.display = el.style.display === "none" ? "block" : "none";
+}
+
 function speak() {
   const u = new SpeechSynthesisUtterance(current.word);
   u.lang = "ru-RU";
@@ -148,7 +160,6 @@ function speak() {
   speechSynthesis.speak(u);
 }
 
-// お気に入り
 function toggleFavorite() {
   if (fav.includes(current.word)) {
     fav = fav.filter(f => f !== current.word);
