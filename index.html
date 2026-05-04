@@ -98,7 +98,7 @@ let current = null;
 let mode = "random";
 let fav = JSON.parse(localStorage.getItem("fav")) || [];
 
-fetch("./russian_words.json")
+fetch("./russian_words_full.json")
   .then(res => res.json())
   .then(json => data = json);
 
