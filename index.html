@@ -7,12 +7,13 @@
 
 <style>
 body {
-  font-family: sans-serif;
+  font-family: -apple-system, sans-serif;
   background: #f2f4f8;
   text-align: center;
   padding: 20px;
 }
 
+/* カード */
 .card {
   background: white;
   border-radius: 20px;
@@ -20,6 +21,7 @@ body {
   margin-top: 20px;
 }
 
+/* 単語 */
 .word {
   font-size: 32px;
   font-weight: bold;
@@ -31,34 +33,56 @@ body {
   color: #666;
 }
 
+/* 変化 */
 .forms {
   margin-top: 15px;
   text-align: left;
   display: none;
 }
 
-.forms div {
-  padding: 5px 0;
-}
-
+/* ボタン共通 */
 button {
   margin: 5px;
   padding: 12px;
   border: none;
   border-radius: 10px;
   color: white;
+  font-size: 16px;
 }
 
-.btn-main { background: green; }
-.btn-next { background: blue; }
-.btn-audio { background: purple; }
-.btn-fav { background: orange; }
-.btn-forms { background: #555; }
-
+/* メニュー */
 .mode-screen button {
   display: block;
   width: 100%;
-  background: #444;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* 色分け */
+.btn-random { background: #2196F3; }
+.btn-noun { background: #4CAF50; }
+.btn-verb { background: #FF9800; }
+.btn-adj { background: #9C27B0; }
+.btn-other { background: #607D8B; }
+.btn-fav { background: #E91E63; }
+
+.btn-main { background: #4CAF50; }
+.btn-next { background: #2196F3; }
+.btn-audio { background: #9C27B0; }
+.btn-back { background: #555; }
+.btn-list { background: #795548; }
+
+/* リスト */
+.list {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.list-item {
+  background: white;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 10px;
 }
 </style>
 </head>
@@ -67,15 +91,19 @@ button {
 
 <h2>ロシア語単語帳</h2>
 
-<div id="modeScreen">
-  <button onclick="start('random')">ランダム</button>
-  <button onclick="start('noun')">名詞</button>
-  <button onclick="start('verb')">動詞</button>
-  <button onclick="start('adj')">形容詞</button>
-  <button onclick="start('other')">その他</button>
-  <button onclick="start('fav')">お気に入り</button>
+<!-- メニュー -->
+<div id="menu">
+  <button class="btn-random" onclick="start('random')">ランダム</button>
+  <button class="btn-noun" onclick="start('noun')">名詞</button>
+  <button class="btn-verb" onclick="start('verb')">動詞</button>
+  <button class="btn-adj" onclick="start('adj')">形容詞</button>
+  <button class="btn-other" onclick="start('other')">その他</button>
+  <button class="btn-fav" onclick="start('fav')">お気に入り</button>
+
+  <button class="btn-list" onclick="showList()">📋 単語一覧</button>
 </div>
 
+<!-- 学習画面 -->
 <div id="app" style="display:none;">
   <div class="card" onclick="showMeaning()">
     <div id="word" class="word"></div>
@@ -87,9 +115,14 @@ button {
     <button class="btn-main" onclick="showMeaning()">答え</button>
     <button class="btn-next" onclick="nextWord()">次へ</button>
     <button class="btn-audio" onclick="speak()">🔊</button>
-    <button class="btn-fav" onclick="toggleFavorite()">⭐</button>
-    <button class="btn-forms" onclick="toggleForms()">変化</button>
+    <button class="btn-back" onclick="goMenu()">戻る</button>
   </div>
+</div>
+
+<!-- 単語一覧 -->
+<div id="listScreen" style="display:none;">
+  <button class="btn-back" onclick="goMenu()">← メニューに戻る</button>
+  <div id="list" class="list"></div>
 </div>
 
 <script>
@@ -102,13 +135,22 @@ fetch("./russian_words_full.json")
   .then(res => res.json())
   .then(json => data = json);
 
+// モード開始
 function start(m) {
   mode = m;
-  document.getElementById("modeScreen").style.display = "none";
+  document.getElementById("menu").style.display = "none";
   document.getElementById("app").style.display = "block";
   nextWord();
 }
 
+// メニューに戻る
+function goMenu() {
+  document.getElementById("menu").style.display = "block";
+  document.getElementById("app").style.display = "none";
+  document.getElementById("listScreen").style.display = "none";
+}
+
+// 出題
 function nextWord() {
   let pool = data;
 
@@ -129,16 +171,25 @@ function nextWord() {
   speak();
 }
 
+// 答え
 function showMeaning() {
   const el = document.getElementById("meaning");
   el.innerText = current.meaning;
   el.style.display = "block";
 }
 
+// 音声
+function speak() {
+  const u = new SpeechSynthesisUtterance(current.word);
+  u.lang = "ru-RU";
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+// 変化表示
 function renderForms() {
   const box = document.getElementById("forms");
   box.innerHTML = "";
-
   if (!current.forms) return;
 
   for (let key in current.forms) {
@@ -148,25 +199,20 @@ function renderForms() {
   }
 }
 
-function toggleForms() {
-  const el = document.getElementById("forms");
-  el.style.display = el.style.display === "none" ? "block" : "none";
-}
+// 単語一覧
+function showList() {
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("listScreen").style.display = "block";
 
-function speak() {
-  const u = new SpeechSynthesisUtterance(current.word);
-  u.lang = "ru-RU";
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-}
+  const list = document.getElementById("list");
+  list.innerHTML = "";
 
-function toggleFavorite() {
-  if (fav.includes(current.word)) {
-    fav = fav.filter(f => f !== current.word);
-  } else {
-    fav.push(current.word);
-  }
-  localStorage.setItem("fav", JSON.stringify(fav));
+  data.forEach(d => {
+    const item = document.createElement("div");
+    item.className = "list-item";
+    item.innerText = d.word + " - " + d.meaning;
+    list.appendChild(item);
+  });
 }
 </script>
 
